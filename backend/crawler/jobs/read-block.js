@@ -39,17 +39,13 @@ exports.Execute = async function (counter) {
     console.log(err);
     process.exit(1);
   }
-  // console.log(initialAccounts);
   let getAccountAysncList = [];
-  console.log('counter', counter)
   let innerCounter = 0;
   for (let address of Object.keys(initialAccounts)) {
-    // setTimeout(function () {
-    console.log('innerCounter', innerCounter++)
+    console.log(`counter: ${counter}'${innerCounter++}`);
     await accountDao.upsertAccountAsync({
       address: address + counter,
     });
-    // }, i * 10);
   }
   // Object.keys(initialAccounts).forEach(function (address, i) {
   //   setTimeout(function () {
